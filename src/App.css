@@ -1,0 +1,32 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(149, 235, 235);
+}
+
+.input_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top:20px;
+
+
+}
+
+.ads{
+ 
+  width:200px;
+  background-color: blueviolet;
+  margin:10px;
+  
+  
+  
+
+}
+.ads_container{
+  display:flex;
+
+}
