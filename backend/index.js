@@ -14,7 +14,19 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/ads',(req,res)=>{
+    console.log("dew")
     res.send(data)
+})
+
+app.get('/ads/q',(req,res)=>{
+    console.log({name:req.query.name})
+    console.log("ddddddd")
+    
+
+    // const data1 = data.find((d) => d.primaryText.toLowerCase() === req.query)
+    // console.log(data1)
+    // res.send(data1)
+
 })
 
 app.listen('7000',()=>{
