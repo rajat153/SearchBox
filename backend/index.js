@@ -1,7 +1,18 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const data = require('./Data')
+// const data = require('./Data')
+const Ads = require("./model/search");
+
+mongoose.connect('mongodb://localhost:27017/adsData', { useNewUrlParser: true })
+    .then(() => {
+        console.log("Mongo Connectiom Open!!!!!")
+
+    })
+    .catch(err => {
+        console.log("Oh No mongo connection error!!!!")
+        console.log(err)
+    })
 
 
 const app = express()
@@ -13,20 +24,10 @@ app.get('/',(req,res)=>{
     res.send("<h1>Home Page</h1>")
 })
 
-app.get('/ads',(req,res)=>{
-    console.log("dew")
-    res.send(data)
-})
-
-app.get('/ads/q',(req,res)=>{
-    console.log({name:req.query.name})
-    console.log("ddddddd")
-    
-
-    // const data1 = data.find((d) => d.primaryText.toLowerCase() === req.query)
-    // console.log(data1)
-    // res.send(data1)
-
+app.get('/ads',async(req,res)=>{
+    const ads = await Ads.find()
+    console.log(ads)
+    res.send(ads)
 })
 
 app.listen('7000',()=>{
