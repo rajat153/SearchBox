@@ -1,3 +1,18 @@
+const mongoose = require('mongoose');
+const Ads = require("./model/search");
+
+mongoose.connect('mongodb://localhost:27017/adsData', { useNewUrlParser: true })
+    .then(() => {
+        console.log("Mongo Connectiom Open!!!!!")
+
+    })
+    .catch(err => {
+        console.log("Oh No mongo connection error!!!!")
+        console.log(err)
+    })
+
+
+
 const ads = [
   {
     _id: 1,
@@ -18,4 +33,12 @@ const ads = [
   },
 ];
 
-module.exports =  ads
+
+Ads.insertMany(ads)  //this method used for saving multiple datas
+    .then(res => {
+        console.log(res)
+    })
+    .catch(e => {
+        console.log(e)
+    })
+// module.exports =  ads
